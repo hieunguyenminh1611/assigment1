@@ -1,0 +1,44 @@
+#include<stdio.h>
+
+int main (int argc, char*argv[])
+{
+    int arr[100];
+    int i = 0;
+    printf("Nhap vao so phan tu cua day: ");
+    int x;
+    scanf("%d", &x);
+    //Nhập từng phần tử cho dãy số
+    printf("\nNhap vao cac phan tu cua day: ");
+    for (int a = 0; a < x; a++)
+    {
+        printf("\nPhan tu thu %d la: ", a + 1);
+        scanf("%d", &arr[a]);
+    }
+    //Kiểm tra 2 phần tử đầu tiên
+    if (arr[0] > arr[1])
+    {
+        printf("%d ", arr[0]);
+        i++;
+    }
+    //Kiểm tra 3 phần tử liên tiếp lần lượt từ đầu đến cuối dãy
+    for (int a = 1; a < x - 1; a++)
+    {
+        if ((arr[a -1 ] < arr[a]) && (arr[a] > arr[a + 1]))
+    {
+        printf("%d ", arr[a]);
+        i++;
+    }
+    }
+    //Kiểm tra 2 phần tử cuối cùng của dãy
+    if (arr[x - 2] < arr[x - 1])
+    {
+        printf("%d", arr[x-1]);
+        i++;
+    }
+    //Trả về không tìm thấy nếu không tìm thấy phần tử đỉnh
+    if (i == 0)
+    {
+        printf("Khong tim thay");
+    }
+    return 0;
+}
